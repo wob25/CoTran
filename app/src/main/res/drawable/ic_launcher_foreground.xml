@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 启动图标前景：白色对话气泡 + 三个深色圆点（示意翻译对话） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 气泡主体 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M34,34h40a6,6 0 0 1 6,6v20a6,6 0 0 1 -6,6h-24l-10,8v-8h-6a6,6 0 0 1 -6,-6v-20a6,6 0 0 1 6,-6z" />
+    <!-- 三个圆点 -->
+    <path
+        android:fillColor="#1C1B1F"
+        android:pathData="M40,47m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#1C1B1F"
+        android:pathData="M54,47m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#1C1B1F"
+        android:pathData="M68,47m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+</vector>

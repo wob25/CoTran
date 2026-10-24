@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CoTran</string>
+
+    <!-- 主界面 -->
+    <string name="main_title">CoTran</string>
+    <string name="main_desc">复制或选中文字后（任意应用内），屏幕右上角会出现悬浮“译”按钮，点击即可翻译并弹窗显示结果。\n\n必需步骤：\n1. 授予“显示在其他应用上层”（悬浮窗）权限；\n2. 开启本应用的无障碍服务（Android 10+ 后台读剪贴板的唯一通道）；\n3. 在系统中允许本应用自启动、关闭电池优化，防止服务被清理。</string>
+    <string name="main_status_on">● 服务运行中</string>
+    <string name="main_status_off">○ 服务未运行</string>
+    <string name="btn_toggle_start">开启服务</string>
+    <string name="btn_toggle_stop">停止服务</string>
+    <string name="btn_settings">设置</string>
+    <string name="btn_manual_input">手动输入翻译</string>
+    <string name="manual_title">手动输入翻译</string>
+    <string name="manual_hint">粘贴或输入要翻译的文本</string>
+    <string name="btn_history">历史记录</string>
+    <string name="btn_battery">去关闭电池优化（防后台被杀）</string>
+    <string name="btn_grant_overlay">去授权悬浮窗权限</string>
+    <string name="btn_grant_a11y">去开启无障碍权限（Android 10+ 必需）</string>
+    <string name="a11y_status_on">● 无障碍监听已开启（剪贴板检测正常）</string>
+    <string name="a11y_status_off">○ 无障碍监听未开启：Android 10+ 后台无法读剪贴板，必须开启</string>
+    <string name="a11y_guide_toast">在列表中找到「CoTran」并开启其无障碍服务，返回后即可正常检测复制内容</string>
+    <string name="a11y_required_toast">必须先开启无障碍权限，才能在其他应用中检测到复制内容</string>
+    <string name="accessibility_label">CoTran</string>
+    <string name="accessibility_desc">开启后可在复制文本时于后台读取剪贴板并显示悬浮翻译按钮。本服务不收集、不上传任何数据。</string>
+    <string name="toast_need_overlay">需要悬浮窗权限才能显示翻译按钮</string>
+    <string name="diag_not_yet">[自检] 尚未检测到任何复制内容</string>
+    <string name="diag_detected">[自检] 最近检测到复制：%1$s · %2$s</string>
+
+    <!-- 通知 -->
+    <string name="notif_channel_name">CoTran</string>
+    <string name="notif_clipboard_title">剪贴板监听中</string>
+    <string name="notif_clipboard_text">复制文本后点击悬浮按钮即可翻译</string>
+    <string name="notif_floating_title">悬浮翻译就绪</string>
+    <string name="notif_floating_text">等待复制新的文本…</string>
+
+    <!-- 悬浮按钮 -->
+    <string name="floating_button_text">译</string>
+    <string name="toast_clipboard_empty">剪贴板暂无可翻译内容</string>
+    <string name="need_overlay_permission">缺少悬浮窗权限，请先在主界面授权</string>
+
+    <!-- 结果面板 -->
+    <string name="overlay_title">翻译结果</string>
+    <string name="overlay_close_icon">×</string>
+    <string name="overlay_source_label">原文</string>
+    <string name="overlay_target_label">译文</string>
+    <string name="overlay_translating">翻译中…</string>
+    <string name="overlay_btn_copy">复制译文</string>
+    <string name="overlay_btn_close">关闭</string>
+    <string name="overlay_btn_translate">翻译</string>
+    <string name="overlay_btn_reverse">⇄</string>
+    <string name="overlay_btn_hide">隐藏</string>
+    <string name="overlay_btn_clear">清除</string>
+    <string name="overlay_btn_refresh">刷新</string>
+    <string name="overlay_input_label">内容：（自动填入最新复制的内容，也可手动输入）</string>
+    <string name="overlay_input_hint">手动输入或粘贴待翻译文本</string>
+    <string name="toast_long_press_hint">长按悬浮按钮可手动输入/粘贴翻译（适用于无法自动检测的应用）</string>
+    <string name="toast_no_result">暂无译文可复制</string>
+    <string name="btn_show_float">重新显示悬浮按钮</string>
+    <string name="toast_float_hidden">悬浮按钮已隐藏，回到本应用可重新显示</string>
+    <string name="toast_float_reshown">悬浮按钮已重新显示</string>
+    <string name="toast_copied">已复制</string>
+    <string name="translate_failed">翻译失败：%1$s</string>
+    <string name="translate_failed_title">翻译失败</string>
+    <string name="toast_no_key">该源未配置密钥，已使用免费源</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="settings_provider_label">翻译源</string>
+    <string name="provider_auto">智能优先（免费接口自动尝试）</string>
+    <string name="provider_bili">B站翻译（免费，数据经B站服务器处理）</string>
+    <string name="provider_google">谷歌翻译（免费，数据会上传至谷歌）</string>
+    <string name="provider_zvo">zvo.cn（免费，数据经其服务器中转）</string>
+    <string name="provider_mymemory">MyMemory（免费，但译文会上传成为公共 TM 翻译记忆库的一部分，公开可查）</string>
+    <string name="provider_mlkit">离线翻译（免费，离线本地运行，隐私最佳，再次点击可选择相应的翻译包）</string>
+    <string name="provider_microsoft">微软翻译（需密钥，每月200万字符）</string>
+    <string name="provider_gcloud">谷歌云翻译（需密钥，每月50万字符）</string>
+    <string name="provider_baidu">百度翻译（需密钥，数据由百度处理）</string>
+    <string name="provider_deepl">DeepL（需密钥，数据可能用于改进模型）</string>
+    <string name="settings_target_label">目标语言</string>
+    <string name="target_auto">自动（中英互译）</string>
+    <string name="target_zh">中文</string>
+    <string name="target_en">英文</string>
+    <string name="target_ja">日文</string>
+    <string name="target_ko">韩文</string>
+    <string name="settings_autohide_label">悬浮按钮自动隐藏</string>
+    <string name="settings_btnsize_label">悬浮按钮大小</string>
+    <string name="settings_btnopacity_label">悬浮按钮背景透明度</string>
+    <string name="btnopacity_current">%1$d%%</string>
+    <string name="btnsize_current">%1$d dp</string>
+    <string name="cb_auto_boot">开机自动启动服务</string>
+    <string name="cb_debug_log">输出调试日志（排查问题用）</string>
+    <string name="autohide_3">3 秒</string>
+    <string name="autohide_5">5 秒</string>
+    <string name="autohide_10">10 秒</string>
+    <string name="autohide_never">永不隐藏</string>
+    <string name="settings_advanced_closed">高级密钥配置 ▾（点击展开）</string>
+    <string name="settings_advanced_opened">高级密钥配置 ▴（点击收起）</string>
+    <string name="hint_microsoft_key">微软 Translator Key</string>
+    <string name="hint_microsoft_region">微软 Region（如 global）</string>
+    <string name="hint_gcloud_key">谷歌云翻译 API Key</string>
+    <string name="manual_via">由 %s 翻译</string>
+    <string name="hint_baidu_appid">百度翻译 APP ID</string>
+    <string name="hint_baidu_secret">百度翻译密钥</string>
+    <string name="hint_deepl_key">DeepL API Key（:fx 结尾为免费 Key）</string>
+
+    <!-- 历史 -->
+    <string name="history_title">历史记录</string>
+    <string name="history_clear">清空</string>
+    <string name="history_empty">暂无翻译记录</string>
+    <string name="dialog_delete_title">删除记录</string>
+    <string name="dialog_delete_msg">确定删除这条翻译记录吗？</string>
+    <string name="dialog_clear_title">清空历史</string>
+    <string name="dialog_clear_msg">确定清空全部翻译记录吗？</string>
+    <string name="btn_delete">删除</string>
+    <string name="btn_clear">清空</string>
+    <string name="btn_cancel">取消</string>
+
+    <!-- 源语言选择 -->
+    <string name="lang_follow_system">跟随系统语言</string>
+    <string name="lang_choose_title">选择界面语言</string>
+    <string name="lang_auto">自动</string>
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">英语</string>
+    <string name="lang_ja">日语</string>
+    <string name="lang_ko">韩语</string>
+    <string name="lang_ru">俄语</string>
+    <string name="lang_fr">法语</string>
+    <string name="lang_de">德语</string>
+    <string name="lang_es">西语</string>
+    <string name="lang_ar">阿语</string>
+    <string name="lang_hi">印地语</string>
+    <string name="lang_th">泰语</string>
+    <string name="lang_vi">越南语</string>
+    <string name="lang_id">印尼语</string>
+    <string name="lang_tr">土耳其</string>
+    <string name="lang_uk">乌克兰</string>
+    <string name="lang_pl">波兰语</string>
+
+    <!-- 离线语言包管理 -->
+    <string name="model_mgr_title">离线翻译包管理</string>
+    <string name="model_mgr_hint">已内置中英双向包。选「自动」= 检测语言自动翻译；手动点选已安装的语言包 = 优先用该包翻译。选择未安装的语言包翻译会自动触发下载（约 30–60MB/个，有的包需要外网才能下载），下载后即可选择</string>
+    <string name="model_pkg_installed">已安装</string>
+    <string name="model_pkg_delete">卸载</string>
+    <string name="model_pkg_deleted">已卸载该语言包</string>
+    <string name="model_pkg_download">下载</string>
+    <string name="model_pkg_downloading">下载中…</string>
+    <string name="model_pkg_failed">下载失败，点击重试</string>
+    <string name="model_pkg_done">已安装</string>
+    <string name="model_close">关闭</string>
+</resources>

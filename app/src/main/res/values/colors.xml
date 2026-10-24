@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 悬浮按钮：深色半透明 -->
+    <color name="floating_bg">#CC1C1B1F</color>
+    <!-- 错误红 -->
+    <color name="error_red">#E53935</color>
+    <!-- 深浅模式通用的正文黑（浅色模式）；深色模式由主题 attr 处理 -->
+    <color name="text_primary">#1C1B1F</color>
+    <!-- 启动图标背景 -->
+    <color name="ic_launcher_background">#1C1B1F</color>
+    <!-- 选中高亮（源语言 chip 等） -->
+    <color name="color_primary">#1E88E5</color>
+    <!-- 次要文字灰 -->
+    <color name="text_secondary">#8A8A8A</color>
+</resources>

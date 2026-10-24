@@ -1,0 +1,59 @@
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+
+# Local configuration
+local.properties
+*.properties
+!gradle.properties
+
+# Gradle
+.gradle/
+**/.gradle/
+gradle-app-home/
+
+# Build output
+build/
+**/build/
+app/build/
+
+# Kotlin / compiler caches
+.kotlin/
+
+# Generated files
+bin/
+gen/
+out/
+
+# APK / signing artifacts
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+*.jks
+*.keystore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# IDE workspace files
+/.idea/
+
+# Optional: if you keep local signing config files
+# signing.properties
+
+# Local debug/intermediate artifacts
+mlkit_tmp/
+mlkit_models_tmp/
+*.lock
+.gradle/
+.kotlin/

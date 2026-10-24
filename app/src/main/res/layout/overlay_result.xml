@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 手动翻译面板（全屏窗口）：顶部 15% 为透明触摸区，点任意空白处 = 关闭面板；
+     底部 85% 为固定高度面板，内容框/译文框为固定等高容器，长文字在框内上下滑动 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 顶部透明触摸区：点击关闭面板（占 15% 屏高） -->
+    <View
+        android:id="@+id/viewOverlayOutside"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:background="@android:color/transparent" />
+
+    <!-- 固定高度面板（占 85% 屏高） -->
+    <LinearLayout
+        android:id="@+id/panelOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.85"
+        android:background="@drawable/bg_overlay_panel"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp">
+
+        <!-- 顶栏：左=操作按钮，右=隐藏/关闭 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnOverlayCopy"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:minWidth="0dp"
+                android:maxWidth="96dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="@string/overlay_btn_copy" />
+
+            <Button
+                android:id="@+id/btnOverlayTranslate"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_marginStart="8dp"
+                android:minWidth="0dp"
+                android:maxWidth="96dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="@string/overlay_btn_translate" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvOverlayHide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:text="@string/overlay_btn_hide"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvOverlayClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="8dp"
+                android:paddingEnd="4dp"
+                android:text="@string/overlay_close_icon"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 内容框（固定高度容器，右上角带清除/刷新按钮，框内滑动） -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/etOverlayInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_input_box"
+                android:gravity="top"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:overScrollMode="always"
+                android:padding="12dp"
+                android:paddingEnd="64dp"
+                android:scrollbars="vertical"
+                android:textSize="14sp" />
+
+            <!-- 右上角按钮组：清除在上，刷新在其正下方 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="8dp"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvOverlayClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="8dp"
+                    android:text="@string/overlay_btn_clear"
+                    android:textColor="@color/error_red"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvOverlayRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="8dp"
+                    android:text="@string/overlay_btn_refresh"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- 译文框（固定高度容器，框内滑动） -->
+        <TextView
+            android:id="@+id/tvOverlayTargetLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/overlay_target_label"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvOverlayResult"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_input_box"
+            android:overScrollMode="always"
+            android:padding="12dp"
+            android:scrollbars="vertical"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+</LinearLayout>
