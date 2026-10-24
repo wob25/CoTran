@@ -34,7 +34,18 @@ class OfflineMlKitProvider : TranslateProvider {
         try {
             translator.downloadModelIfNeeded()
                 .await("download model $src->$tgt")
-            val translated = translator.translate(text).await("translate")
+            // ML Kit 会把多行文本压成一行；按行逐条翻译以保留原文换行/分段结构
+            val translated = if (text.contains('\n')) {
+                val lines = text.split("\n")
+                val sb = StringBuilder()
+                lines.forEachIndexed { i, line ->
+                    sb.append(if (line.isBlank()) line else translator.translate(line).await("translate"))
+                    if (i < lines.size - 1) sb.append("\n")
+                }
+                sb.toString()
+            } else {
+                translator.translate(text).await("translate")
+            }
             return TranslateResult(text, translated, src, tgt)
         } finally {
             translator.close()
